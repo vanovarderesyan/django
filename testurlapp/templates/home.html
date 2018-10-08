@@ -2,5 +2,7 @@
     <h2>Zakaz</h2>
     {{pizza}}
     <form action="POST">
+        {% csrf_token %}
         {{form.as_ul}}
+        <input type="submit" value="POST">
     </form>

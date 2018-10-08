@@ -1,4 +1,4 @@
-"""fistdjangoproject URL Configuration
+"""firstdjangoproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from testurlapp import test_url
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Polls API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test_url/',include('testurlapp.test_url'))
+    path('test_url/',include('testurlapp.test_url')),
+    path('swagger-docs/', schema_view),
+
 ]
